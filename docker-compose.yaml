@@ -24,13 +24,15 @@ services:
     entrypoint: dockerize -wait tcp://db:3306 -timeout 30s docker-entrypoint.sh
     networks:
       - host1
-    volumes:
-      - ./node:/usr/src/app
     tty: true
     ports:
       - "3000:3000"
     depends_on:
       - db
+
+#    volumes:
+#      - ./node:/usr/src/app
+
 
   nginx:
     build:
